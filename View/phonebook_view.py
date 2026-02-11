@@ -3,6 +3,7 @@ import os
 CLEAR_CMD = "cls" if os.name == "nt" else "clear"
 
 class PhoneBookView:
+
     @staticmethod
     def clear_screen():
         os.system(CLEAR_CMD)
@@ -123,3 +124,45 @@ class PhoneBookView:
         comment = input("\nВведите комментарий: ").strip()
 
         return name, number, comment
+
+    def get_contact_changes(self):
+        """Собирает данные контакта для внесения изменений
+        Любое поле может остаться пустым"""
+
+        # PhoneBookView.clear_screen()
+        self.show_menu(file_loaded=True)
+
+        new_name = input("Введите новое имя или нажмите Enter, чтобы пропустить: ").strip()
+        name = None if not new_name else new_name
+
+        while True:
+            try:
+                new_number = int(input("Введите новый номер или нажмите Enter, чтобы пропустить: ")).strip()
+                break
+            except ValueError:
+                print("!Введён некорректный формат номера")
+        number = None if not new_number else new_number
+
+        new_comment = input("Введите новый комментарий или нажмите Enter, чтобы пропустить: ").strip()
+        comment = None if not new_comment else new_comment
+
+        return {'name': name, 'number': number, 'comment': comment}
+
+    def check_id(self, contacts: list):
+        """
+            Получает корректный ID существующего контакта.
+
+            Returns:
+                int: Существующий ID контакта
+            """
+
+        while True:
+            try:
+                request_id = int(input("Введите ID контакта, который хотите изменить: "))
+                for contact in contacts:
+                    if contact["id"] == request_id:
+                        return request_id
+
+                print("Запрошенный ID не найден")
+            except ValueError:
+                print("!Введён некорректный формат ID")
