@@ -6,6 +6,7 @@ class PhoneBookModel:
         self.contacts = []
         self.data_len = 0
         self.file_name = None
+        self._unsaved_changes = False
 
 
     def open_file(self, filename: str):
@@ -136,6 +137,7 @@ class PhoneBookModel:
                         raise TypeError("!Введён некорректный формат номера")
                 if comment is not None:
                     contact["comment"] = comment
+                self._unsaved_changes = True  # флаг изменений
                 return True
 
         return False
