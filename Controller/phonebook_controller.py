@@ -12,27 +12,28 @@ class PhoneBookController:
     def run(self):
         """Основной цикл справочника"""
 
-        self.view.show_menu(file_loaded=bool(self.model.contacts))
-        choice = self.view.get_menu_choice()
+        while True:
+            self.view.show_menu(file_loaded=bool(self.model.contacts))
+            choice = self.view.get_menu_choice()
 
-        if choice == 1:
-            self.open_file_menu()
-        elif choice == 2:
-            self.save_file_menu()
-        elif choice == 3:
-            self.show_contacts_menu()
-        elif choice == 4:
-            self.add_contact_menu()
-        elif choice == 5:
-            self.find_contact_menu()
-        elif choice == 6:
-            self.edit_contact_menu()
-        elif choice == 7:
-            self.del_contact_menu()
-        elif choice == 8:
-            self.exit_menu()
-        else:
-            self.view.show_error("!Указан несуществующий пункт меню\n")
+            if choice == 1:
+                self.open_file_menu()
+            elif choice == 2:
+                self.save_file_menu()
+            elif choice == 3:
+                self.show_contacts_menu()
+            elif choice == 4:
+                self.add_contact_menu()
+            elif choice == 5:
+                self.find_contact_menu()
+            elif choice == 6:
+                self.edit_contact_menu()
+            elif choice == 7:
+                self.del_contact_menu()
+            elif choice == 8:
+                self.exit_menu()
+            else:
+                self.view.show_error("!Указан несуществующий пункт меню\n")
 
     def open_file_menu(self):
         """Пункт меню 1 - Открыть файл"""
@@ -65,6 +66,9 @@ class PhoneBookController:
     def add_contact_menu(self):
         """Пункт меню 4 - добавление нового контакта"""
 
+        if not self.model.contacts:
+            self.view.show_error("!Сначала необходимо открыть файл")
+            return
         try:
             new_name, new_number, new_comment = self.view.get_new_contact_data()
             self.model.add_contact(new_name, new_number, new_comment)
@@ -107,15 +111,7 @@ class PhoneBookController:
         """Пункт меню 8 - выход"""
 
         if self.model._unsaved_changes:
-            if self.view.ask_save_on_exit()
+            if self.view.ask_save_on_exit():
                 self.save_file_menu()
         self.view.show_success("Всего хорошего!")
         exit()
-
-
-
-
-
-
-
-

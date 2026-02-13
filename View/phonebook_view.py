@@ -65,11 +65,11 @@ class PhoneBookView:
     def get_filename(self):
         "Получает название файла"
 
-        while True:
-            filename = input("Введите название файла:").strip()
-            if filename == "contacts.json":
-                return filename
-            print("Неверное имя файла!")
+        PhoneBookView.clear_screen()
+        self.show_menu(file_loaded=True)
+
+        filename = input("Введите название файла: ").strip()
+        return filename
 
     def get_search_query(self):
         """
@@ -117,7 +117,7 @@ class PhoneBookView:
 
         while True:
             try:
-                number = int(input("\nВведите номер контакта: ")).strip()
+                number = int(input("\nВведите номер контакта: "))
                 break
             except ValueError:
                 print("!Введён некорректный формат номера")
@@ -172,8 +172,10 @@ class PhoneBookView:
     def show_error(self, message: str):
         """Печатает сообщение об ошибке"""
 
+        PhoneBookView.clear_screen()
+        self.show_menu(file_loaded=True)
         print(f"{message}")
-        input("\nНажмите Enter")
+        input("\nДля возврата в меню, нажмите Enter")
 
     def show_success(self, message: str):
         """Печатает сообщение об успехе"""

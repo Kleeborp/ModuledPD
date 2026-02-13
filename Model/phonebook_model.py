@@ -133,7 +133,7 @@ class PhoneBookModel:
                 if name is not None:
                     contact["name"] = name
                 if phone is not None:
-                    if not isinstance(phone, int)
+                    if not isinstance(phone, int):
                         raise TypeError("!Введён некорректный формат номера")
                 if comment is not None:
                     contact["comment"] = comment
