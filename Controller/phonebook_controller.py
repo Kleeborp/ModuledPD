@@ -46,7 +46,9 @@ class PhoneBookController:
         try:
             filename = self.view.get_filename()
             self.model.open_file(filename)
-            self.view.show_success(f"Файл успешно открыт, контактов в списке: {self.model.data_len}\n")
+            self.view.show_success(
+                f"Файл успешно открыт, контактов в списке: {self.model.data_len}\n"
+            )
         except FileNotFoundError as e:
             self.view.show_error(str(e))
         except ValueError as e:

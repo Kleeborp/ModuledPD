@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed1d1ada-1629-4380-b4c6-e7d9e348e07b" name="Changes" comment="" />
+    <list default="true" id="ed1d1ada-1629-4380-b4c6-e7d9e348e07b" name="Changes" comment="сделаны правки 16.02 (стабильная версия)">
+      <change afterPath="$PROJECT_DIR$/Model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ModuledPD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ModuledPD.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/phonebook_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/phonebook_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/phonebook_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model/phonebook_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/phonebook_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/View/phonebook_view.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Kleeborp&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Kleeborp/ModuledPD.git&quot;,
+    &quot;accountId&quot;: &quot;e224714d-97be-44b3-b9b0-b7252d8919e4&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="39PhV5d3v5vi340nPyw9eHbvfWi" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -18,13 +49,112 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "Python.Model.executor": "Run",
+    "Python.Unnamed.executor": "Run",
+    "Python.__init__.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.phonebook_model.executor": "Run",
+    "Python.phonebook_view.executor": "Run",
+    "Python.test_view.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Diman/Python/ModuledPD",
+    "settings.editor.selected.configurable": "com.jetbrains.python.black.configuration.BlackFormatterConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Diman\Python\ModuledPD\View" />
+      <recent name="D:\Diman\Python\ModuledPD\Model" />
+      <recent name="D:\Diman\Python\ModuledPD\Controller" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="ModuledPD" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14 (ModuledPD)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="phonebook_view" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="ModuledPD" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14 (ModuledPD)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/View/phonebook_view.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_view" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="ModuledPD" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.14 (ModuledPD)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/View/test_view.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.test_view" />
+      <item itemvalue="Python.phonebook_view" />
+    </list>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-3944b0c99280-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.127" />
+        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
       </set>
     </attachedChunks>
   </component>
@@ -36,6 +166,72 @@
       <option name="presentableId" value="Default" />
       <updated>1770603633302</updated>
     </task>
+    <task id="LOCAL-00001" summary="model написан, view в процессе">
+      <option name="closed" value="true" />
+      <created>1770800345361</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770800345361</updated>
+    </task>
+    <task id="LOCAL-00002" summary="model написан, view написан">
+      <option name="closed" value="true" />
+      <created>1770805372320</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770805372320</updated>
+    </task>
+    <task id="LOCAL-00003" summary="model написан, view написан">
+      <option name="closed" value="true" />
+      <created>1770805388943</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770805388943</updated>
+    </task>
+    <task id="LOCAL-00004" summary="controller написан">
+      <option name="closed" value="true" />
+      <created>1770888820591</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1770888820591</updated>
+    </task>
+    <task id="LOCAL-00005" summary="до правок в model.save_file">
+      <option name="closed" value="true" />
+      <created>1770957304432</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1770957304432</updated>
+    </task>
+    <task id="LOCAL-00006" summary="делаю правки 16.02">
+      <option name="closed" value="true" />
+      <created>1771205542856</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1771205542856</updated>
+    </task>
+    <task id="LOCAL-00007" summary="сделаны правки 16.02 (стабильная версия)">
+      <option name="closed" value="true" />
+      <created>1771214498512</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1771214498512</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="model написан, view в процессе" />
+    <MESSAGE value="model написан, view написан" />
+    <MESSAGE value="controller написан" />
+    <MESSAGE value="до правок в model.save_file" />
+    <MESSAGE value="делаю правки 16.02" />
+    <MESSAGE value="сделаны правки 16.02 (стабильная версия)" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделаны правки 16.02 (стабильная версия)" />
   </component>
 </project>

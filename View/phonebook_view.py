@@ -2,6 +2,7 @@ import os
 
 CLEAR_CMD = "cls" if os.name == "nt" else "clear"
 
+
 class PhoneBookView:
 
     @staticmethod
@@ -21,14 +22,14 @@ class PhoneBookView:
 
     def get_menu_choice(self):
         """
-            Получает выбор пункта меню от пользователя.
+        Получает выбор пункта меню от пользователя.
 
-            Returns:
-                int: Пункт меню 1-8
+        Returns:
+            int: Пункт меню 1-8
 
-            Notes:
-                Повторяет ввод при некорректных данных
-            """
+        Notes:
+            Повторяет ввод при некорректных данных
+        """
 
         while True:
             PhoneBookView.clear_screen()
@@ -39,22 +40,24 @@ class PhoneBookView:
             except ValueError:
                 self.show_error("!Указан несуществующий пункт меню")
 
-
     def show_all_contacts(self, contacts: list):
         "Показывает все контакты"
 
         PhoneBookView.clear_screen()
-        #self.show_menu(file_loaded=True)
+        # self.show_menu(file_loaded=True)
 
         if not contacts:
             self.show_error("!Сначала необходимо открыть файл")
         else:
             for contact in contacts:
                 print(
-                    contact["id"], ") ",
-                    contact["name"], " - ",
-                    contact["phone"], "; ",
-                    contact["comment"]
+                    contact["id"],
+                    ") ",
+                    contact["name"],
+                    " - ",
+                    contact["phone"],
+                    "; ",
+                    contact["comment"],
                 )
             input("\nНажмите Enter для возврата в меню")
 
@@ -69,12 +72,12 @@ class PhoneBookView:
 
     def get_search_query(self):
         """
-            Получает поисковый запрос от пользователя.
-            Используется для поиска контакта по любому запросу
+        Получает поисковый запрос от пользователя.
+        Используется для поиска контакта по любому запросу
 
-            Returns:
-                str: Текст для поиска
-            """
+        Returns:
+            str: Текст для поиска
+        """
 
         PhoneBookView.clear_screen()
         self.show_menu()
@@ -91,21 +94,24 @@ class PhoneBookView:
         else:
             for contact in contacts:
                 print(
-                    contact["id"], ") ",
-                    contact["name"], " - ",
-                    contact["phone"], "; ",
-                    contact["comment"]
+                    contact["id"],
+                    ") ",
+                    contact["name"],
+                    " - ",
+                    contact["phone"],
+                    "; ",
+                    contact["comment"],
                 )
 
         input("Для возврата в меню, нажмите Enter")
 
     def get_new_contact_data(self):
         """
-            Собирает данные нового контакта с валидацией.
+        Собирает данные нового контакта с валидацией.
 
-            Returns:
-                tuple: (name: str, phone: int, comment: str)
-            """
+        Returns:
+            tuple: (name: str, phone: int, comment: str)
+        """
         PhoneBookView.clear_screen()
         self.show_menu()
 
@@ -129,11 +135,15 @@ class PhoneBookView:
         PhoneBookView.clear_screen()
         self.show_menu()
 
-        new_name = input("Введите новое имя или нажмите Enter, чтобы пропустить: ").strip()
+        new_name = input(
+            "Введите новое имя или нажмите Enter, чтобы пропустить: "
+        ).strip()
         name = None if not new_name else new_name
 
         while True:
-            new_number = input("Введите новый номер или нажмите Enter, чтобы пропустить: ").strip()
+            new_number = input(
+                "Введите новый номер или нажмите Enter, чтобы пропустить: "
+            ).strip()
             if new_number == "":
                 break
             try:
@@ -143,23 +153,27 @@ class PhoneBookView:
                 print("!Введён некорректный формат номера")
         number = None if not new_number else new_number
 
-        new_comment = input("Введите новый комментарий или нажмите Enter, чтобы пропустить: ").strip()
+        new_comment = input(
+            "Введите новый комментарий или нажмите Enter, чтобы пропустить: "
+        ).strip()
         comment = None if not new_comment else new_comment
 
-        return {'name': name, 'number': number, 'comment': comment}
-        #return name, number, comment
+        return {"name": name, "number": number, "comment": comment}
+        # return name, number, comment
 
     def check_id(self, contacts: list):
         """
-            Получает корректный ID существующего контакта.
+        Получает корректный ID существующего контакта.
 
-            Returns:
-                int: Существующий ID контакта
-            """
+        Returns:
+            int: Существующий ID контакта
+        """
 
         while True:
             try:
-                request_id = int(input("Введите ID контакта, который хотите изменить: "))
+                request_id = int(
+                    input("Введите ID контакта, который хотите изменить: ")
+                )
                 for contact in contacts:
                     if contact["id"] == request_id:
                         return request_id
@@ -195,5 +209,3 @@ class PhoneBookView:
                 return True
             elif user_answer == "n":
                 return False
-
-
