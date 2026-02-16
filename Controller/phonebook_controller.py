@@ -11,7 +11,7 @@ class PhoneBookController:
         """Основной цикл справочника"""
 
         while True:
-            self.view.show_menu(file_loaded=bool(self.model.contacts))
+            self.view.show_menu()
             choice = self.view.get_menu_choice()
 
             if choice == 1:
@@ -98,7 +98,7 @@ class PhoneBookController:
         try:
             contact_id = self.view.check_id(self.model.contacts)
 
-            if self.model.edit_contact(contact_id, self.view.get_contact_changes):
+            if self.model.edit_contact(contact_id, **self.view.get_contact_changes()):
                 self.view.show_success("Контакт успешно изменён\n")
             else:
                 self.view.show_error("Ошибка редактирования")

@@ -8,13 +8,10 @@ class PhoneBookView:
     def clear_screen():
         os.system(CLEAR_CMD)
 
-    def show_menu(self, file_loaded = False):
+    def show_menu(self):
         PhoneBookView.clear_screen()
-        if file_loaded:
-            print("1. Открыть файл (v)")
-        else:
-            print("1. Открыть файл")
-        print("""2. Сохранить файл
+        print("""1. Открыть файл
+2. Сохранить файл
 3. Показать все контакты
 4. Создать контакт
 5. Найти контакт
@@ -35,16 +32,13 @@ class PhoneBookView:
 
         while True:
             PhoneBookView.clear_screen()
-            self.show_menu(file_loaded=True)
+            self.show_menu()
             try:
                 choice = input("Укажите пункт меню: ").strip()
                 return int(choice)
             except ValueError:
                 self.show_error("!Указан несуществующий пункт меню")
 
-# view = PhoneBookView()
-# view.show_menu()
-# view.get_menu_choice()
 
     def show_all_contacts(self, contacts: list):
         "Показывает все контакты"
@@ -68,7 +62,7 @@ class PhoneBookView:
         "Получает название файла"
 
         PhoneBookView.clear_screen()
-        self.show_menu(file_loaded=True)
+        self.show_menu()
 
         filename = input("Введите название файла: ").strip()
         return filename
@@ -83,14 +77,14 @@ class PhoneBookView:
             """
 
         PhoneBookView.clear_screen()
-        self.show_menu(file_loaded=True)
+        self.show_menu()
         return input("Введите ФИО, номер телефона или ключевое слово:").strip()
 
     def show_search_result(self, contacts: list):
         "Показывает результаты поиска контактов"
 
         PhoneBookView.clear_screen()
-        self.show_menu(file_loaded=True)
+        self.show_menu()
 
         if not contacts:
             print("Ничего не найдено")
@@ -113,7 +107,7 @@ class PhoneBookView:
                 tuple: (name: str, phone: int, comment: str)
             """
         PhoneBookView.clear_screen()
-        self.show_menu(file_loaded=True)
+        self.show_menu()
 
         name = input("Введите имя контакта: ").strip()
 
@@ -133,14 +127,17 @@ class PhoneBookView:
         Любое поле может остаться пустым"""
 
         PhoneBookView.clear_screen()
-        self.show_menu(file_loaded=True)
+        self.show_menu()
 
         new_name = input("Введите новое имя или нажмите Enter, чтобы пропустить: ").strip()
         name = None if not new_name else new_name
 
         while True:
+            new_number = input("Введите новый номер или нажмите Enter, чтобы пропустить: ").strip()
+            if new_number == "":
+                break
             try:
-                new_number = int(input("Введите новый номер или нажмите Enter, чтобы пропустить: ")).strip()
+                int(new_number)
                 break
             except ValueError:
                 print("!Введён некорректный формат номера")
@@ -149,8 +146,8 @@ class PhoneBookView:
         new_comment = input("Введите новый комментарий или нажмите Enter, чтобы пропустить: ").strip()
         comment = None if not new_comment else new_comment
 
-        #return {'name': name, 'number': number, 'comment': comment}
-        return name, number, comment
+        return {'name': name, 'number': number, 'comment': comment}
+        #return name, number, comment
 
     def check_id(self, contacts: list):
         """
@@ -175,7 +172,7 @@ class PhoneBookView:
         """Печатает сообщение об ошибке"""
 
         PhoneBookView.clear_screen()
-        self.show_menu(file_loaded=True)
+        self.show_menu()
         print(f"{message}")
         input("\nДля возврата в меню, нажмите Enter")
 
@@ -183,10 +180,11 @@ class PhoneBookView:
         """Печатает сообщение об успехе"""
 
         PhoneBookView.clear_screen()
-        self.show_menu(file_loaded=True)
+        self.show_menu()
 
         print(f"{message}")
-        input("\nНажмите Enter для возврата в меню")
+        if message != "Всего хорошего!":
+            input("\nНажмите Enter для возврата в меню")
 
     def ask_save_on_exit(self):
         """Предлагает сохранить изменения при выходе"""

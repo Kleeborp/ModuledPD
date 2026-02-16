@@ -53,6 +53,7 @@ class PhoneBookModel:
             raise ValueError("!Сначала необходимо открыть файл")
 
         save_filename = self.file_name
+        self._unsaved_changes = False
 
         with open(save_filename, "w", encoding='utf-8') as f:
             json.dump(self.contacts, f, ensure_ascii=False, indent=4)
@@ -112,7 +113,7 @@ class PhoneBookModel:
         return result
 
 
-    def edit_contact(self, contact_id: int, name: str = None, phone: int = None, comment: str = None):
+    def edit_contact(self, contact_id: int, name: str = None, number: str = None, comment: str = None):
         """
             Изменяет контакт по ID. Параметры None = поле не меняется.
 
@@ -126,9 +127,8 @@ class PhoneBookModel:
             if contact["id"] == contact_id:
                 if name is not None:
                     contact["name"] = name
-                if phone is not None:
-                    if not isinstance(phone, int):
-                        raise TypeError("!Введён некорректный формат номера")
+                if number is not None:
+                    contact["phone"] = number
                 if comment is not None:
                     contact["comment"] = comment
                 self._unsaved_changes = True  # флаг изменений

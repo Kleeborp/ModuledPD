@@ -1,14 +1,4 @@
-# from Controller.phonebook_controller import PhoneBookController
-#
-#
-#
-# if __name__ == "__main__":
-#     PhoneBookController.run()
-
-
-
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+#contacts.json
 """
 Телефонный справочник (MVC)
 """
@@ -25,8 +15,6 @@ def main():
         print("\nПрограмма прервана пользователем")
     except Exception as e:
         print(f"Критическая ошибка: {e}")
-    finally:
-        print("До свидания!")
 
 
 if __name__ == "__main__":
