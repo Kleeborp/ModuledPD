@@ -41,28 +41,22 @@ class PhoneBookModel:
 
 
 
-    def save_file(self, filename: str = None):
+    def save_file(self):
         """
             Сохраняет текущие контакты в JSON файл.
 
             Raises:
-                IOError: Ошибка записи файла
                 ValueError: Нет открытого файла
             """
 
-        if not self.file_name and filename is None:
+        if not self.file_name:
             raise ValueError("!Сначала необходимо открыть файл")
 
-        save_filename = filename or self.file_name
+        save_filename = self.file_name
 
-        try:
-            with open(save_filename, "w", encoding='utf-8') as f:
-                json.dump(self.contacts, f, ensure_ascii=False, indent=4)
-            return True
-
-        except IOError as e:
-            raise IOError(f"Ошибка сохранения '{save_filename}': {str(e)}")
-
+        with open(save_filename, "w", encoding='utf-8') as f:
+            json.dump(self.contacts, f, ensure_ascii=False, indent=4)
+        return True
 
     def add_contact(self, name: str, number: int, comment: str):
         """

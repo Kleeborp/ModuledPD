@@ -34,11 +34,13 @@ class PhoneBookView:
             """
 
         while True:
+            PhoneBookView.clear_screen()
+            self.show_menu(file_loaded=True)
             try:
                 choice = input("Укажите пункт меню: ").strip()
                 return int(choice)
             except ValueError:
-                print("!Указан несуществующий пункт меню")
+                self.show_error("!Указан несуществующий пункт меню")
 
 # view = PhoneBookView()
 # view.show_menu()
@@ -48,10 +50,10 @@ class PhoneBookView:
         "Показывает все контакты"
 
         PhoneBookView.clear_screen()
-        self.show_menu(file_loaded=True)
+        #self.show_menu(file_loaded=True)
 
         if not contacts:
-            print("!Сначала необходимо открыть файл")
+            self.show_error("!Сначала необходимо открыть файл")
         else:
             for contact in contacts:
                 print(
@@ -60,7 +62,7 @@ class PhoneBookView:
                     contact["phone"], "; ",
                     contact["comment"]
                 )
-        input("\nДля возврата в меню, нажните Enter")
+            input("\nНажмите Enter для возврата в меню")
 
     def get_filename(self):
         "Получает название файла"

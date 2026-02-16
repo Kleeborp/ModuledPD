@@ -1,5 +1,3 @@
-from hashlib import new
-
 from View.phonebook_view import PhoneBookView
 from Model.phonebook_model import PhoneBookModel
 
@@ -35,6 +33,13 @@ class PhoneBookController:
             else:
                 self.view.show_error("!Указан несуществующий пункт меню\n")
 
+    def first_open(self):
+        """Проверяет открыт ли файл"""
+
+        if not self.model.contacts:
+            self.view.show_error("!Сначала необходимо открыть файл")
+            return True
+
     def open_file_menu(self):
         """Пункт меню 1 - Открыть файл"""
 
@@ -66,8 +71,7 @@ class PhoneBookController:
     def add_contact_menu(self):
         """Пункт меню 4 - добавление нового контакта"""
 
-        if not self.model.contacts:
-            self.view.show_error("!Сначала необходимо открыть файл")
+        if self.first_open():
             return
         try:
             new_name, new_number, new_comment = self.view.get_new_contact_data()
@@ -79,6 +83,8 @@ class PhoneBookController:
     def find_contact_menu(self):
         """Пункт меню 5 - поиск контакта"""
 
+        if self.first_open():
+            return
         query = self.view.get_search_query()
         if query:
             result = self.model.find_contact(query)
@@ -87,6 +93,8 @@ class PhoneBookController:
     def edit_contact_menu(self):
         """Пункт меню 6 - изменение контакта"""
 
+        if self.first_open():
+            return
         try:
             contact_id = self.view.check_id(self.model.contacts)
 
@@ -100,6 +108,8 @@ class PhoneBookController:
     def del_contact_menu(self):
         """Пункт меню 7 - удаление контакта"""
 
+        if self.first_open():
+            return
         contact_id = self.view.check_id(self.model.contacts)
 
         if self.model.del_contact(contact_id):
