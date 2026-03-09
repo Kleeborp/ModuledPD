@@ -35,10 +35,6 @@ class PhoneBookModel:
             raise FileNotFoundError(
                 f"Файл {filename} не найден. Файл должен называться 'contacts.json'"
             )
-        except json.JSONDecodeError as e:
-            raise ValueError(f"Ошибка JSON: {str(e)}")
-        except Exception as e:
-            raise RuntimeError(f"Непредвиденная ошибка: {str(e)}")
 
     def save_file(self):
         """
@@ -72,8 +68,10 @@ class PhoneBookModel:
         if not isinstance(number, int):
             raise ValueError("!Введён некорректный формат номера")
 
+        new_id = list(self.contacts[-1].values())[0]
+
         new_contact = {
-            "id": self.data_len + 1,
+            "id": new_id + 1,
             "name": name,
             "phone": number,
             "comment": comment,
@@ -110,7 +108,7 @@ class PhoneBookModel:
         return result
 
     def edit_contact(
-        self, contact_id: int, name: str = None, number: str = None, comment: str = None
+        self, contact_id: int, name: str = None, number: int = None, comment: str = None
     ):
         """
         Изменяет контакт по ID. Параметры None = поле не меняется.
@@ -153,3 +151,7 @@ class PhoneBookModel:
                 return True
 
         return False
+
+    @staticmethod
+    def add(a, b):
+        return a + b
