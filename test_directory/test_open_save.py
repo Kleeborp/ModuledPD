@@ -5,10 +5,7 @@ from pathlib import Path
 
 @pytest.mark.parametrize(
     "filename, expected_exception",
-    [
-        ("contacts.json", None),
-        ("other.json", FileNotFoundError)
-    ],
+    [("contacts.json", None), ("other.json", FileNotFoundError)],
     ids=["valid_filename", "invalid_filename"],
 )
 def test_open_file(phonebook_model, filename, expected_exception):
@@ -18,7 +15,10 @@ def test_open_file(phonebook_model, filename, expected_exception):
     """
 
     if expected_exception:
-        with pytest.raises(expected_exception, match="Файл other.json не найден. Файл должен называться 'contacts.json'"):
+        with pytest.raises(
+            expected_exception,
+            match="Файл other.json не найден. Файл должен называться 'contacts.json'",
+        ):
             phonebook_model.open_file(str(filename))
     else:
         phonebook_model.open_file(str(filename))

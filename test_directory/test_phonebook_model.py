@@ -4,7 +4,8 @@ import pytest
 def test_add_contact(phonebook_model):
     """Тест добавления контакта.
     1) После добавления, длина списка контактов увеличивается на 1
-    2) После добавления, ID нового контакта на 1 больше последнего в исходном справочнике"""
+    2) После добавления, ID нового контакта на 1 больше последнего в исходном справочнике
+    """
 
     initial_len = len(phonebook_model.contacts)
     last_id = list(phonebook_model.contacts[-1].values())[0]
@@ -13,16 +14,17 @@ def test_add_contact(phonebook_model):
     assert len(phonebook_model.contacts) == initial_len + 1
     assert new_contact == last_id + 1
 
+
 @pytest.mark.parametrize(
     "query, expected_count, expected_ids",
-    [   # query         кол-во        ID'шники
-        ("иван",        2,            [1, 3]),      # по имени
-        ("71234",       2,            [1, 3]),      # по номеру
-        ("друг",        1,            [1]),         # по комментарию
-        ("анна",        1,            [2]),         # точное имя
-        ("",            0,            []),          # пустой запрос
-        ("ИВАН",        2,            [1, 3]),      # регистр
-    ]
+    [  # query         кол-во        ID'шники
+        ("иван", 2, [1, 3]),  # по имени
+        ("71234", 2, [1, 3]),  # по номеру
+        ("друг", 1, [1]),  # по комментарию
+        ("анна", 1, [2]),  # точное имя
+        ("", 0, []),  # пустой запрос
+        ("ИВАН", 2, [1, 3]),  # регистр
+    ],
 )
 def test_find_contact(phonebook_model, query, expected_count, expected_ids):
     """Параметризованный тест поиска"""
@@ -37,16 +39,12 @@ def test_find_contact(phonebook_model, query, expected_count, expected_ids):
     [
         # Изменение всех полей
         (1, "Иван Петров", 71234567891, "лучший друг", True),
-
         # Изменение только имени
         (2, "Анна Сидорова", None, None, True),
-
         # Изменение только номера
         (3, None, 71234567892, None, True),
-
         # Изменение комментария
         (1, None, None, "брат", True),
-
         # ID не найден
         (999, "Не существует", 1234567890, "test", False),
     ],
@@ -56,13 +54,17 @@ def test_find_contact(phonebook_model, query, expected_count, expected_ids):
         "change_phone_only_id3",
         "change_comment_only_id1",
         "id_not_found_999",
-    ]
+    ],
 )
-def test_edit_contact(phonebook_model, contact_id, new_name, new_phone, new_comment, expected_result):
+def test_edit_contact(
+    phonebook_model, contact_id, new_name, new_phone, new_comment, expected_result
+):
     """Параметризованный тест изменения контакта"""
 
     initial_len = len(phonebook_model.contacts)
-    result = phonebook_model.edit_contact(contact_id, name=new_name, number=new_phone, comment=new_comment)
+    result = phonebook_model.edit_contact(
+        contact_id, name=new_name, number=new_phone, comment=new_comment
+    )
 
     assert result == expected_result
 
@@ -88,17 +90,21 @@ def test_edit_contact(phonebook_model, contact_id, new_name, new_phone, new_comm
 
     else:  # ID не найден — состояние не изменилось
         assert len(phonebook_model.contacts) == initial_len
-        assert phonebook_model._unsaved_changes is False    # Флаг не изменился
+        assert phonebook_model._unsaved_changes is False  # Флаг не изменился
+
 
 @pytest.mark.parametrize(
     "contact_id, expected_result, expected_final_len",
     [
         # Удаление существующего контакта
-        (2, True, 2),    # Удаляем ID=2 → остаётся 2
+        (2, True, 2),  # Удаляем ID=2 → остаётся 2
         # ID не найден
-        (999, False, 3), # ID не существует → остаётся 3
+        (999, False, 3),  # ID не существует → остаётся 3
     ],
-    ids=["delete_id_2", "id_not_found_999",]
+    ids=[
+        "delete_id_2",
+        "id_not_found_999",
+    ],
 )
 def test_del_contact(phonebook_model, contact_id, expected_result, expected_final_len):
     """Параметризованный тест удаления контакта"""
@@ -119,6 +125,3 @@ def test_del_contact(phonebook_model, contact_id, expected_result, expected_fina
 
     else:  # ID не найден — состояние не изменилось
         assert len(phonebook_model.contacts) == initial_len
-
-
-
